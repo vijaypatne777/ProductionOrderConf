@@ -1,0 +1,1 @@
+sap.ui.define(["Prod_Ord_Conf/Production_Ord_Conf/controller/FileUpload.controller"],function(o){"use strict";QUnit.module("FileUpload Controller");QUnit.test("I should test the FileUpload controller",function(n){var t=new o;t.onInit();n.ok(t)})});
