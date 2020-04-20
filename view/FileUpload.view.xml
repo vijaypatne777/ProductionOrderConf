@@ -1,0 +1,102 @@
+<mvc:View controllerName="Prod_Ord_Conf.Production_Ord_Conf.controller.FileUpload" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+						<Panel>
+							<FlexBox height="50px" alignItems="Center" justifyContent="Center">
+								<items>
+									<Text text="Upload File" width="5rem"></Text>
+									<u:FileUploader width="16rem" id="fileUploader" name="myFileUpload" uploadUrl="upload/" tooltip="Upload your file to the local server"
+										uploadComplete="handleUploadComplete"/>
+									<ToolbarSpacer/>
+									<Button width="5rem" id="tUpload" icon="sap-icon://upload" press="handleUploadPress"/>
+									<Button width="5rem" id="cUpload" icon="sap-icon://upload-to-cloud" press="handlePost"/>
+									<Button width="5rem" id="rclear" icon="sap-icon://refresh" press="handleRefresh"/>
+								</items>
+							</FlexBox>
+						</Panel>
+						<Table id="prodTable" items="{ path: '/prec'}" growing="true">
+							<headerToolbar>
+								<Toolbar>
+									<Title text="Prodction Order Data" level="H2"/>
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column width="5rem">
+									<Text text="Prodcution Order"/>
+								</Column>
+								<Column width="5rem">
+									<Text text="Order Operation"/>
+								</Column>
+								<Column width="5rem">
+									<Text text="Sequence"/>
+								</Column>
+								<Column width="5rem">
+									<Text text="FinalConfirmation"/>
+								</Column>
+								<Column width="3rem">
+									<Text text="Yield"/>
+								</Column>
+								<Column width="6rem">
+									<Text text="ConfirmationText"/>
+								</Column>
+								<Column width="3rem">
+									<Text text="Unit"/>
+								</Column>
+								<Column width="6rem">
+									<Text text="Exec Start Date"/>
+								</Column>
+								<Column width="6rem">
+									<Text text="Exec Start Time"/>
+								</Column>
+								<Column width="6rem">
+									<Text text="Exec End Date"/>
+								</Column>
+								<Column width="6rem">
+									<Text text="Exec End Time"/>
+								</Column>
+								<Column width="6rem">
+									<Text text="Posting Date"/>
+								</Column>
+								<Column width="3rem">
+									<Text text="Break Time"/>
+								</Column>
+								<Column width="6rem">
+									<Text text="Personal Number"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{OrdNo}"/>
+										<Text text="{OpNo}"/>
+										<Text text="{Seq}"/>
+										<Text text="{Ctype}"/>
+										<Text text="{Quan}"/>
+										<Text text="{CTEXT}"/>
+										<Text text="{Unit}"/>
+										<Text text="{ValidF}"/>
+										<Text text="{ValidFT}"/>
+										<Text text="{ValidFE}"/>
+										<Text text="{ValidFET}"/>
+										<Text text="{PDATE}"/>
+										<Text text="{BT}"/>
+										<Text text="{PNO}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+					<footer>
+						<OverflowToolbar  id="oToolBar">
+							<ToolbarSpacer/>
+						</OverflowToolbar>
+					</footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
