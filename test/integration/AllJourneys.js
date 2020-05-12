@@ -1,0 +1,1 @@
+sap.ui.define(["sap/ui/test/Opa5","./arrangements/Startup","./NavigationJourney"],function(e,n){"use strict";e.extendConfig({arrangements:new n,viewNamespace:"Prod_Ord_Conf.Production_Ord_Conf.view.",autoWait:true})});
