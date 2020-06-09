@@ -1,0 +1,23 @@
+/* Enter your custom styles here */
+
+/*.myApp .myTool.sapMTB
+{
+padding-bottom: 1.5rem;
+}
+*/
+.myPadd
+{
+padding-bottom: 1.5rem;
+}
+.tableColor
+{
+background-color: #f9f9c2 ;
+font-weight: bold;
+}
+
+span[data-color="Red"]
+{
+background-color:  #ff0000 ;
+font-weight: bold;
+}
+
