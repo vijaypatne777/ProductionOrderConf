@@ -1,0 +1,136 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "Prod_Ord_Conf.Production_Ord_Conf",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		},
+		"dataSources": {
+			"PDSRC": {
+				"uri": "/destinations/S4HC/sap/opu/odata/sap/API_PROD_ORDER_CONFIRMATION_2_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			},
+			"PSDSRC": {
+				"uri": "/destinations/S4HC/sap/opu/odata/sap/YY1_PROD_ORD_COMP_STOCK_CDS/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "Prod_Ord_Conf.Production_Ord_Conf.view.FileUpload",
+			"type": "XML",
+			"async": true,
+			"id": "FileUpload"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "Prod_Ord_Conf.Production_Ord_Conf.i18n.i18n"
+				}
+			},
+			"PORD": {
+				"dataSource": "PDSRC"
+			},
+			"PORDSTOCK": {
+				"dataSource": "PSDSRC"
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "Prod_Ord_Conf.Production_Ord_Conf.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "RouteFileUpload",
+					"pattern": "RouteFileUpload",
+					"target": [
+						"TargetFileUpload"
+					]
+				},
+				{
+					"name": "RLog",
+					"pattern": "RLog",
+					"target": "Log"
+				}
+			],
+			"targets": {
+				"TargetFileUpload": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "FileUpload",
+					"viewName": "FileUpload",
+					"viewLevel": 1
+				},
+				"Log": {
+					"viewType": "XML",
+					"viewId": "vLog",
+					"viewName": "Log",
+					"viewLevel": 2
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}
